@@ -9,6 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <ThemeProvider attribute="class" defaultTheme="light">
       <div className={"min-h-screen"}>
         <Component {...pageProps} />
+        <Toaster />
       </div>
       <ModeToggle className={"absolute top-6 right-6"} />
     </ThemeProvider>
