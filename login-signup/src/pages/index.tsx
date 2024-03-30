@@ -55,7 +55,7 @@ export default function Home() {
 
   function onSubmit(data: RegisterInput) {
     const { password, confirmPassword } = data;
-    if (password === confirmPassword) {
+    if (password !== confirmPassword) {
       toast({
         title: "비밀번호가 일치하지 않습니다.",
         variant: "destructive",
@@ -80,7 +80,7 @@ export default function Home() {
               className="relative space-y-3 overflow-x-hidden"
             >
               <motion.div
-                className={cn("space-y-3")}
+                className={cn("space-y-3 px-2")}
                 animate={{ translateX: `${step * -100}%` }}
                 transition={{ ease: "easeInOut" }}
               >
@@ -152,7 +152,7 @@ export default function Home() {
                 />
               </motion.div>
               <motion.div
-                className={cn("space-y-3 absolute top-0 left-0 right-0")}
+                className={cn("space-y-3 px-2 absolute top-0 left-0 right-0")}
                 animate={{ translateX: `${(1 - step) * 100}%` }}
                 style={{ translateX: `${(1 - step) * 100}%` }}
                 transition={{
@@ -186,10 +186,7 @@ export default function Home() {
                   )}
                 />
               </motion.div>
-              <div className={"flex gap-2"}>
-                <Button className={cn({ hidden: step === 0 })} type="submit">
-                  계정 등록하기
-                </Button>
+              <div className={"flex justify-between"}>
                 <Button
                   type="button"
                   className={cn({ hidden: step === 1 })}
@@ -220,6 +217,9 @@ export default function Home() {
                   }}
                 >
                   이전 단계로
+                </Button>
+                <Button className={cn({ hidden: step === 0 })} type="submit">
+                  계정 등록하기
                 </Button>
               </div>
             </form>
