@@ -29,4 +29,7 @@ import { ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { registerSchema } from "@/validators/auth";
 import { useState } from "react";
+
+type RegisterInput = z.infer<typeof registerSchema>;
